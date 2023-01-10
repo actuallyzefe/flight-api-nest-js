@@ -6,6 +6,7 @@ import {
   Param,
   NotFoundException,
 } from '@nestjs/common';
+import { CreateFlightDto } from './DTOs/create-flight.dto';
 
 import { FlightsService } from './flight.service';
 
@@ -20,7 +21,7 @@ export class FlightController {
 
   // IMPORTANT BURASI TEST AMAÇLI
   @Post()
-  createFlight(@Body() body) {
+  createFlight(@Body() body: CreateFlightDto) {
     return this.flightService.create(body.content);
   }
 }
